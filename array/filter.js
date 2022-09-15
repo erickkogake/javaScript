@@ -12,4 +12,4 @@ const names = ['João','Carlos', 'Victor','Gih','Kenji','Bruna']
 const quantBooks = books.filter((_,index) => names[index] == 'João')
 const bookas = books.filter(_ => _ == 7 || _==8)
 console.log(quantBooks)
-console.log(bookas) 
+console.log(bookas)

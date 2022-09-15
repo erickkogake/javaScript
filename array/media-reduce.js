@@ -14,4 +14,5 @@ const notas = [10,6.5,8,7]
 const totalNotas = notas.reduce((acum, atual) => atual + acum, 0 )/ notas.length
 // let mediaNotas = totalNotas/notas.length
 
+
 console.log(totalNotas)
