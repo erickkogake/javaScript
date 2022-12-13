@@ -17,11 +17,24 @@ const trataErro = (erro) => {
 
 // Métodos assíncronos!
 
-const pegaArquivo = (caminhoDoArquivo) => {
-    const encoding = "utf-8"
-    fs.promises.readFile(caminhoDoArquivo, encoding)
-        .then((texto)=>{console.log(chalk.blue(texto))})
-        .catch(trataErro)
+// const pegaArquivo = (caminhoDoArquivo) => {
+//     const encoding = "utf-8"
+//     fs.promises.readFile(caminhoDoArquivo, encoding)
+//         .then((texto)=>{console.log(chalk.blue(texto))})
+//         .catch(trataErro)
+// }
+
+async function pegaArquivo(caminhoDoArquivo) {
+    try {
+        const encoding = 'utf-8'
+        const texto = await fs.promises.readFile(caminhoDoArquivo, encoding)
+        console.log(chalk.red(texto))
+    } catch (erro) {
+        trataErro(erro)
+    } finally {
+        console.log(chalk.yellow("Operação concluída"))
+    }
 }
 
-pegaArquivo('./arquivos/texto.m');
+pegaArquivo('./arquivos/texto.md');
+// pegaArquivo('./arquivos/texto.m')
